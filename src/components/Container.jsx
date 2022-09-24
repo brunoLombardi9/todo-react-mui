@@ -1,12 +1,13 @@
-import { Box } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import React from 'react'
 
 const Container = ({ children }) => {
     return (
-        <Box
+        <Grid
+            component="header"
             sx={{
                 width: "100vw",
-                height: "100vh",
+                minHeight: "100vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -14,7 +15,7 @@ const Container = ({ children }) => {
             }}
         >
             {children}
-        </Box>
+        </Grid>
     )
 }
 

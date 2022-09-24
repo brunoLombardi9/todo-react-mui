@@ -4,11 +4,17 @@ import React from 'react';
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#001e3c",
+            main: "#100F0F",
         },
         secondary: {
-            main: "#619cc0",
+            main: "#2B4865",
         },
+        third: {
+            main: "#E8F9FD"
+        },
+        fourth: {
+            main: "#FF9F29"
+        }
     },
 });
 
