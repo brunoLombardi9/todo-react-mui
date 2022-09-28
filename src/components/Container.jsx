@@ -9,6 +9,7 @@ const Container = ({ children }) => {
                 width: "100vw",
                 minHeight: "100vh",
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "primary.main"
