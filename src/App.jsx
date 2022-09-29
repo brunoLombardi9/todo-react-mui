@@ -1,4 +1,5 @@
-import { Container, Form, Theme } from "./components"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { Container, Form, Theme, Tasks, TaskDetails, FormContext } from "./components"
 
 function App() {
 
@@ -6,7 +7,14 @@ function App() {
 
     <Theme>
       <Container>
-        <Form />
+      <FormContext>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<><Form /><Tasks /></>} />
+            <Route path="/tasks/:id" element={<TaskDetails/>} />
+          </Routes>
+        </BrowserRouter>
+        </FormContext>
       </Container>
     </Theme>
 

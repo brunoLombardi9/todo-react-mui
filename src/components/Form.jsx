@@ -1,38 +1,27 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './Form.css'
-import { Tasks, CustomBox } from './';
+import { CustomBox } from './';
+import { context } from './FormContext';
+
 
 
 const Form = () => {
-  const [time, setTime] = useState("");
-  const [date, setDate] = useState("");
-  const [taskTitle, setTaskTitle] = useState("");
-  const [task, setTask] = useState("");
+  const formContext = useContext(context);
 
-  function submitHandler(event) {
-    event.preventDefault();
-  }
-
-  function changeTaskTitleHandler(event) {
-    setTaskTitle(event.target.value);
-  }
-
-  function changeTaskHandler(event) {
-    setTask(event.target.value);
-  }
-
-  function changeTimeHandler(event) {
-    setTime(event.target.value);
-  }
-
-  function changeDateHandler(event) {
-    setDate(event.target.value);
-  }
-
+  const submitHandler = formContext.submitHandler;
+  const changeTaskTitleHandler = formContext.changeTaskTitleHandler;
+  const changeTaskHandler = formContext.changeTaskHandler;
+  const changeTimeHandler = formContext.changeTimeHandler;
+  const changeDateHandler = formContext.changeDateHandler;
+  const time = formContext.time;
+  const date = formContext.date;
+  const taskTitle = formContext.taskTitle;
+  const task = formContext.task;
 
 
   return (
+
 
     <>
       <form onSubmit={submitHandler}>
@@ -42,6 +31,7 @@ const Form = () => {
           <Box sx={{ display: "flex", justifyContent: "space-between", flexDirection: { xs: "column", md: "row" }, width: { xs: "50%", md: "auto" }, margin: "auto" }}>
 
             <Typography variant='body1' color="white">Tarea:</Typography>
+
             <TextField type="text" variant="standard" required={true} onChange={changeTaskTitleHandler} color="third" sx={{ marginBottom: 3, backgroundColor: "third.primary" }} />
 
             <Typography variant='body1' color="white">Hora:</Typography>
@@ -80,9 +70,8 @@ const Form = () => {
 
 
       </form >
-      <Tasks />
-    </>
 
+    </>
 
   )
 }
